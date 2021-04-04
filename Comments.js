@@ -2,14 +2,12 @@ import React, { useEffect, useState } from 'react';
 import {
     FlatList,
     SafeAreaView,
-    ScrollView,
     StatusBar,
     StyleSheet,
     Text,
     useColorScheme,
     View,
 } from 'react-native';
-import { color } from 'react-native-reanimated';
 
 
 const Comments = ({ route, navigation }) => {
@@ -18,7 +16,6 @@ const Comments = ({ route, navigation }) => {
     console.log("In Comments component", Comments)
 
     const [comments, setComments] = useState([])
-    const [comm, setComm] = useState([])
 
 
     useEffect(() => {
@@ -30,7 +27,6 @@ const Comments = ({ route, navigation }) => {
                 //     console.log("commmm1", x.body)
                 //     comments.push(x.body)
                 // })
-                console.log(comments, " state of comments ")
             }).catch((err) => console.log(err))
     }, [])
 
@@ -52,13 +48,9 @@ const Comments = ({ route, navigation }) => {
     )
 
     return (
-        <SafeAreaView
-        >
+        <SafeAreaView>
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-
             <View>
-
-
                 <FlatList
                     nestedScrollEnabled={true}
                     data={comments}
@@ -69,10 +61,7 @@ const Comments = ({ route, navigation }) => {
                     nestedScrollEnabled={true}
                     ListHeaderComponent={renderHeader}
                 />
-
-
             </View>
-
         </SafeAreaView>
     );
 };
@@ -82,24 +71,24 @@ const styles = StyleSheet.create({
         flex: 1,
         color: '#111569',
         fontSize: 30,
-        margin:'4%',
-        backgroundColor:'orange',
-        padding:20,
-        borderRadius:10,
-fontFamily:'cursive'
+        margin: '4%',
+        backgroundColor: 'orange',
+        padding: 20,
+        borderRadius: 10,
+        fontFamily: 'cursive'
     },
     title: {
         flex: 1,
         color: 'black',
         fontSize: 25,
-        margin:'3%',
-        fontWeight:'bold'
+        margin: '3%',
+        fontWeight: 'bold'
     },
     desc: {
         flex: 1,
         color: 'green',
         fontSize: 20,
-        margin:'3%',
+        margin: '3%',
 
 
     }

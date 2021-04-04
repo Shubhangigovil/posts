@@ -3,7 +3,6 @@ import {
   FlatList,
   Pressable,
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -18,19 +17,14 @@ const App = ({ navigation }) => {
   const [title, setTitle] = useState('')
   const [posts, setPosts] = useState([])
   const [description, setDescription] = useState('')
-  const [comments, setComments] = useState([])
 
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(json => {
-        //console.log(json)
         setPosts(json)
       }).catch((err) => console.log(err))
-    // return () => {
-    //   cleanup
-    // }
   }, [])
   function renderHeader() {
     return (
